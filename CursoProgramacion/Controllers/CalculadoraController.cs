@@ -23,5 +23,26 @@ namespace CursoProgramacion.Controllers
             return View();
         }
 
+        [HttpPost]
+
+        public IActionResult Calcular (Calculadora objCalculadora){
+            if("+".Equals(objCalculadora.Accion)){
+                objCalculadora.Respuesta= objCalculadora.Operador1 + objCalculadora.Operador2;
+            }
+
+            if("-".Equals(objCalculadora.Accion)){
+                objCalculadora.Respuesta = objCalculadora.Operador1- objCalculadora.Operador2;        
+                   }
+            if("/".Equals(objCalculadora.Accion)){
+                objCalculadora.Respuesta = objCalculadora.Operador1 / objCalculadora.Operador2;   
+                   }
+            if("*".Equals(objCalculadora.Accion)){
+                objCalculadora.Respuesta = objCalculadora.Operador1 * objCalculadora.Operador2;         
+                   }
+
+            return View("index",objCalculadora);
+
+        }
+
     }
 }
