@@ -11,6 +11,7 @@ namespace CursoProgramacion.Models
 
         public string Accion { get; set; }
         
+        [Display(Name="La respuesta es : ")]
         public int Respuesta { get; set; }
 
 
