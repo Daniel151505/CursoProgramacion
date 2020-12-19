@@ -29,8 +29,9 @@ namespace CursoProgramacion.Controllers
 
         public IActionResult Registrar (Contacto objContacto){
 
-            objContacto.Response="Gracias estamos en contacto";
-  
+           if(ModelState.IsValid){
+                objContacto.Response="Gracias estamos en contacto";
+             }
          return View ("Index", objContacto);
 
         }
