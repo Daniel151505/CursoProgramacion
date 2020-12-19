@@ -1,8 +1,37 @@
+@model CursoProgramacion.Models.Calculadora
+
 @{
     ViewData["Title"] = "Calculadora";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
+    <h1 class="display-4">Calculadora</h1>
+
+<form  asp-controller="Calculadora" asp-action="Calcular"> 
+
+    <label>Calculadora</label>
+    <br>
+    <label>Operador1</label>
+    <input asp-for="Operador1">
+    <br>
+    <label>Operador2</label>
+    <input asp-for="Operador2">
+    <br>
+    <label>Elige la Accion</label>
+    <select asp-for="Accion">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <br>
+    <input type="submit" value="Calcular">
+
+</form>
+
+
+<td>@Html.DisplayNameFor(model => model.Respuesta)</td>
+<td>@Html.DisplayTextFor(model => model.Respuesta)</td>
+
+
 </div>
