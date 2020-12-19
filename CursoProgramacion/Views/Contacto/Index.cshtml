@@ -1,0 +1,61 @@
+@model CursoProgramacion.Models.Contacto
+
+@{
+    ViewData["Title"] = "Contactenos";
+}
+
+<div class="container col-md-4">
+    <h1>Formulario de Contacto</h1>
+    
+  <form asp-controller="Contacto" asp-action="Registrar">
+
+     <div>
+         <label asp-for="Name" class="control-label"></label>
+         <input asp-for="Name" class="form-control"> 
+         <span asp-validation-for="Name" class="text-danger"></span> 
+     </div> 
+
+      <div>
+         <label asp-for="LastName" class="control-label"></label>
+         <input asp-for="LastName" class="form-control" > 
+          <span asp-validation-for="LastName" class="text-danger"></span> 
+     </div> 
+
+      <div>
+         <label asp-for="Email" class="control-label"></label>
+         <input asp-for="Email" class="form-control" > 
+     </div> 
+
+      <div>
+         <label asp-for="Number" class="control-label"></label>
+         <input asp-for="Number" class="form-control" > 
+     </div> 
+
+    <div>
+         <label asp-for="Course" class="control-label"></label>
+          <input asp-for="Course" class="form-control" > 
+
+     </div> 
+     
+      <div>
+         <label asp-for="Title" class="control-label"></label>
+         <input asp-for="Title" class="form-control" > 
+     </div> 
+
+      <div>
+         <label asp-for="Message" class="control-label"></label>
+         <input asp-for="Message" class="form-control" > 
+     </div> 
+<br>
+     <div style="text-align:center;" >
+         <button type="submit" class="btn btn-primary">Registrar</button>
+     </div>
+
+  </form>
+
+  <td>@Html.DisplayTextFor(model => model.Response) </td>
+
+
+</div>
+
+ 
