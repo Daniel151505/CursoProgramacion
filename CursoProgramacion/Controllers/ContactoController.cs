@@ -23,6 +23,17 @@ namespace CursoProgramacion.Controllers
             return View();
         }
 
+        
+        [HttpPost]
+
+
+        public IActionResult Registrar (Contacto objContacto){
+
+            objContacto.Response="Gracias estamos en contacto";
+  
+         return View ("Index", objContacto);
+
+        }
     
     }
 }
