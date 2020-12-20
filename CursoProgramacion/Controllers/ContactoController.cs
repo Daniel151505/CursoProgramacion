@@ -27,6 +27,14 @@ namespace CursoProgramacion.Controllers
             return View();
         }
 
+         public IActionResult Listar()
+        {
+            //listar
+            var listarContactos = _context.Contactos.ToList();
+            return View(listarContactos);
+            //listar
+        }
+
         
         [HttpPost]
 
@@ -34,9 +42,13 @@ namespace CursoProgramacion.Controllers
 
            if(ModelState.IsValid){
 
+                //Registrar
                _context.Add(objContacto);
                _context.SaveChanges();
+                //Registar
+
                 objContacto.Response="Gracias estamos en contacto";
+
              }
          return View ("Index", objContacto);
 
