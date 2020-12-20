@@ -1,0 +1,40 @@
+{
+
+"Cadena de Conexion":{
+
+	"prefix" : "Cadena de conexion",
+	"body": [
+		" 'ConnectionStrings' : {",
+			"'postgress-db' : 'Host=;Database=;Username=;Password=;Port=;SSL Mode= Require;Trust Server Certificate=true'",
+		  "},"
+	],
+	"description": "Cadena de conexión"
+
+},
+
+
+"datalocation": {
+	"prefix" : "Data Location",
+	"body": [
+		"services.AddDbContext<DatabaseContext>(options =>",
+		"options.UseNpgsql(",
+			"Configuration.GetConnectionString('Nombre de la cadena de conexion')));"
+	],
+	"description": "Locacion de la data"
+
+},
+
+"metodos": {
+
+	"prefix": "Metodo",
+	"body" : [
+        " public int nombreMetodo {get;set;} "
+	],
+	"description": "Creación de Metodos"
+
+}
+
+
+
+
+}
