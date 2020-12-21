@@ -94,8 +94,25 @@
 	],
 	"description": "Editar Segundo"
 
-}
+},
 
+"Eliminar": {
+
+	"prefix": "Eliminar",
+	"body" : [
+		
+		
+		"public IActionResult Eliminar(int ? id){",
+
+            "var asignar nombre de la variable = _context.nombre de base de DbSet.Find(id);",
+            "_context.nombre de base de DbSet.Remove(asignar nombre de la variable);",
+            "_context.SaveChanges();",
+            "return RedirectToAction(nameof(la vista que quieres despues de que se elimina));",
+        "}"
+	],
+	"description": "Elimninar"
+
+}
 
 
 
