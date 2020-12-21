@@ -101,6 +101,19 @@ namespace CursoProgramacion.Controllers
 
         }
         //editar
+
+         
+         //eliminar
+        public IActionResult Eliminar (int? id){
+
+                var contacto= _context.Contactos.Find(id);
+                _context.Contactos.Remove(contacto);
+                _context.SaveChanges();
+
+                return RedirectToAction(nameof(Listar));
+
+         }
+        //eliminar
    
     
     }
