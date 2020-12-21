@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CursoProgramacion.Models;
 using CursoProgramacion.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CursoProgramacion.Controllers
 {
@@ -45,7 +46,7 @@ namespace CursoProgramacion.Controllers
                 //Registrar
                _context.Add(objContacto);
                _context.SaveChanges();
-                //Registar
+                //Registrar
 
                 objContacto.Response="Gracias estamos en contacto";
 
@@ -53,6 +54,54 @@ namespace CursoProgramacion.Controllers
          return View ("Index", objContacto);
 
         }
+
+        //editar
+        public async Task<IActionResult> Editar (int ? id){
+        
+            if(id == null){
+            return NotFound();
+            }else{
+                
+                var contacto= await _context.Contactos.FindAsync(id);
+                if(contacto == null){
+                    return NotFound();
+                }
+                else{
+                    return View(contacto);
+                }
+
+            }
+
+        }
+
+       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Editar (int id, [Bind("Id,Name,LastName,Email,Number,Course,Title,Message")] Contacto objContactoo ){
+
+            if(id !=objContactoo.Id){
+                return NotFound();
+            }
+
+            if(ModelState.IsValid){
+            try{
+                _context.Update(objContactoo);
+                await _context.SaveChangesAsync();
+                
+            }
+            catch(DbUpdateConcurrencyException){
+                return NotFound();
+            }
+           
+            return RedirectToAction(nameof(Listar));
+            }
+
+            return View (objContactoo);
+
+        }
+        //editar
+   
     
     }
 }
