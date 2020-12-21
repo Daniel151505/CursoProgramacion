@@ -22,7 +22,10 @@
    {
 
     <tr >
-      <th scope="row"><a asp-action="Editar" asp-route-id="@item.Id">Editar</a></th>
+      <th scope="row">
+        <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+        <a asp-action="Eliminar" asp-route-id="@item.Id">Eliminar</a>
+      </th>
       <td>@Html.DisplayFor(modelItem => item.Name)</td>
       <td>@Html.DisplayFor(modelItem => item.LastName)</td>
       <td>@Html.DisplayFor(modelItem => item.Number)</td>
