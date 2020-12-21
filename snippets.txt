@@ -72,7 +72,7 @@
         "[ValidateAntiForgeryToken]",
         "public async Task<IActionResult> Editar(int id, [Bind ('campos')] nombre del Modelo con los metodos - asignar nombre al prametro){",
             
-            "if(id != nombre del parametro.Id){",
+            "if(id != nombre del parametro.tu Id que has puesto el campos){",
                 "return NotFound();",
             "}",
 
