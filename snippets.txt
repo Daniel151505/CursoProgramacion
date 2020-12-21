@@ -32,7 +32,70 @@
 	],
 	"description": "Creación de Metodos"
 
+},
+
+"Editar Primero": {
+
+	"prefix": "Editar Primero",
+	"body" : [
+		
+		
+		"public async Task<IActionResult> Editar (int? id){",
+            
+            "if(id ==null){",
+                "return NotFound();",
+            "}",
+
+            "var asignar nombre de la variable = await _context.nombre de base de DbSet.FindAsync(id);",
+            "if (asignar nombre de la variable == null){",
+                "return NotFound();",
+            "}",
+            "return View (asignar nombre de la variable);",
+
+        "}"
+
+
+	],
+	"description": "Editar Primero"
+
+},
+
+
+
+"Editar Segundo": {
+
+	"prefix": "Editar Segundo",
+	"body" : [
+		
+		
+		"[HttpPost]",
+        "[ValidateAntiForgeryToken]",
+        "public async Task<IActionResult> Editar(int id, [Bind ('campos')] nombre del Modelo con los metodos - asignar nombre al prametro){",
+            
+            "if(id != nombre del parametro.Id){",
+                "return NotFound();",
+            "}",
+
+            "if(ModelState.IsValid){",
+                "try{",
+                    "_context.Update(nombre del parametro);",
+                    "await _context.SaveChangesAsync();",
+                "}",
+                "catch(DbUpdateConcurrencyException){",
+                    "return NotFound();",
+                "}",
+                
+                "return RedirectToAction(nameof(la vista que quieres despues de que se edita));",
+                
+            "}",
+            "return View(nombre del parametro);",
+        "}"
+
+	],
+	"description": "Editar Segundo"
+
 }
+
 
 
 
